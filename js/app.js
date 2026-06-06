@@ -369,7 +369,7 @@ function render() {
     html += untracked.map(e => buildUntrackedHTML(e, idx++)).join('');
   }
   if (requests.length) {
-    html += sectionHeader('requests','依頼枠','視聴者からのリクエスト');
+    html += sectionHeader('requests','依頼枠','');
     html += requests.map(e => buildRequestHTML(e, idx++)).join('');
   }
   if (rest.length) {
