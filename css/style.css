@@ -125,7 +125,7 @@ header{padding:2.5rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom
 
 .ranking-item{
   background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);
-  padding:0.8rem 1.2rem;display:grid;grid-template-columns:3rem 1fr auto;
+  padding:0.8rem 1.2rem;display:grid;grid-template-columns:3rem 5rem 1fr auto;
   align-items:center;gap:1rem;transition:all 0.18s;
   text-decoration:none;color:inherit;cursor:pointer;
   animation:fadeUp 0.28s ease both;
@@ -191,7 +191,7 @@ footer a{color:var(--accent-purple);text-decoration:none}
 @media(max-width:600px){
   .controls{gap:0.9rem;padding:1rem}
   .controls-right{width:100%;justify-content:flex-end}
-  .ranking-item{grid-template-columns:2.4rem 1fr auto;padding:0.7rem 0.85rem;gap:0.65rem}
+  .ranking-item{grid-template-columns:2.4rem 4rem 1fr auto;padding:0.7rem 0.85rem;gap:0.5rem}
   .song-title{font-size:0.83rem}
   .rank-num{font-size:1.1rem}
   .section-header{padding:0.5rem 0.9rem}
@@ -255,4 +255,36 @@ footer a{color:var(--accent-purple);text-decoration:none}
   border-color: var(--accent-purple) !important;
   background: rgba(157, 126, 232, 0.1) !important;
   cursor: pointer;
+}
+
+/* ===== THUMBNAIL ===== */
+.thumb-block {
+  width: 5rem;
+  height: 2.8rem;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+.thumb-block.thumb-error .thumb-img { display: none; }
+.thumb-block.thumb-error::after {
+  content: '♪';
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+.thumb-empty {
+  background: transparent;
+}
+@media(max-width:600px){
+  .thumb-block { width: 4rem; height: 2.3rem; }
 }
