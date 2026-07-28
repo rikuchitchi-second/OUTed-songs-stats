@@ -163,7 +163,7 @@ header{padding:2.5rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom
 .requester{font-style:normal;color:var(--accent-pink);font-size:0.72rem}
 
 /* 再生数 */
-.views-block{text-align:right;display:flex;flex-direction:column;gap:0.18rem;flex-shrink:0}
+.views-block{text-align:right;display:flex;flex-direction:column;gap:0.18rem;flex-shrink:0;align-self:center;justify-content:center}
 .views-total{font-family:var(--font-num);font-size:1rem;color:#c8bff0;display:none}
 .views-total.visible{display:block}
 .views-increase{font-family:var(--font-num);font-size:1rem;color:#e87e7e;font-weight:600}
@@ -219,6 +219,8 @@ footer a{color:var(--accent-purple);text-decoration:none}
   animation: fadeUp 0.25s ease both;
   max-height: calc(100vh - 3rem);
   overflow-y: auto;
+  margin-right: -220px;
+  width: calc(100% + 220px);
 }
 .chart-header {
   display: flex;
@@ -260,7 +262,7 @@ footer a{color:var(--accent-purple);text-decoration:none}
 }
 #rank-chart {
   width: 100%;
-  height: 320px;
+  height: 220px;
   display: block;
 }
 .chart-legend {
