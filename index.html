@@ -41,6 +41,7 @@
     <button id="btn-next" class="btn-nav" aria-label="次の週">次週 ▶</button>
 
     <div class="controls-right">
+      <button id="btn-mobile-views" class="btn-toggle btn-mobile-only">再生数表示</button>
       <button id="btn-toggle-views" class="btn-toggle">総再生数</button>
       <button id="btn-toggle-detail" class="btn-toggle">詳細回数</button>
       <button id="btn-toggle-chart" class="btn-toggle">📈 チャート</button>
@@ -55,7 +56,14 @@
 
   <!-- コンテンツエリア（ランキング＋サイドチャート） -->
   <div class="content-grid">
-    <main id="ranking-list" aria-label="ランキング一覧" aria-live="polite"></main>
+    <nav id="jump-nav" class="jump-nav" style="display:none;" aria-label="セクションジャンプ">
+    <button class="jump-btn" data-target="sec-million">100万回以上</button>
+    <button class="jump-btn" data-target="sec-half">50万回以上</button>
+    <button class="jump-btn" data-target="sec-third">30万回以上</button>
+    <button class="jump-btn" data-target="sec-requests">依頼枠</button>
+  </nav>
+
+  <main id="ranking-list" aria-label="ランキング一覧" aria-live="polite"></main>
 
     <!-- ★ 順位推移チャート（右側sticky） -->
     <div id="chart-wrap" style="display:none;">
