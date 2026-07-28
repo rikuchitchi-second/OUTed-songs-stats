@@ -3,7 +3,7 @@
  *
  * ■ スプレッドシートに入力する列（rankingシート）
  *   year, month, week, title, artist, videoId, views, viewsIncrease
- *   ※ rank / previousRank / isNew はすべてここで自動計算
+ *   ※ rank / previousRank / isNew はすべてここで自動計算します
  */
 
 const CONFIG = {
@@ -280,6 +280,14 @@ function bindEvents(){
     State.chartVisible=!State.chartVisible;
     State.chartSongFilter=null;
     document.getElementById('btn-toggle-chart').classList.toggle('active',State.chartVisible);
+    document.querySelector('.content-grid').classList.toggle('chart-open',State.chartVisible);
+    renderChart();
+  });
+  document.getElementById('btn-chart-close').addEventListener('click',()=>{
+    State.chartVisible=false;
+    State.chartSongFilter=null;
+    document.getElementById('btn-toggle-chart').classList.remove('active');
+    document.querySelector('.content-grid').classList.remove('chart-open');
     renderChart();
   });
 }
@@ -359,6 +367,10 @@ function render(){
   if(requests.length){
     html+=sectionHeader('requests','依頼枠','');
     html+=requests.map(e=>buildEntryHTML(e,idx++,true)).join('');
+    html+=`<div class="request-contact">
+      統計依頼は<a href="https://x.com/botty_KF" target="_blank" rel="noopener">X(旧Twitter)</a>DM又は<br>
+      <a href="https://www.youtube.com/c/Localvoid4" target="_blank" rel="noopener">Youtube</a>コメントへの返信でお願いします。
+    </div>`;
   }
   if(rest.length){
     if(hasUpper)html+=sectionHeader('rest','ランキング','');
