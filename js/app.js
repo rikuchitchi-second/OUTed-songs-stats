@@ -310,6 +310,15 @@ function render(){
   document.getElementById('period-label').textContent=
     `${State.year}年 ${Number(State.month)}月 第${Number(State.week)}週`;
 
+  // lvchartリンクを現在の期間に合わせて更新
+  const lvWrap = document.getElementById('lvchart-link-wrap');
+  const lvLink = document.getElementById('lvchart-link');
+  if(lvWrap && lvLink){
+    const lvUrl = `https://lvchart.com/weekly/${State.year}-${State.month}-${State.week}`;
+    lvLink.href = lvUrl;
+    lvWrap.style.display = 'block';
+  }
+
   const entries  =State.currentRanking;
   const untracked=State.currentUntracked;
   const requests =State.currentRequests;
