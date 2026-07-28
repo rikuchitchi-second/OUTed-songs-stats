@@ -49,25 +49,28 @@
 
   <p class="period-label" id="period-label">読み込み中...</p>
 
-  <!-- ★ 順位推移チャート -->
-  <div id="chart-wrap" style="display:none;">
-    <div class="chart-header">
-      <span class="chart-title">順位推移チャート</span>
-      <span class="chart-hint">チャート表示中に曲をクリック → その曲を拡大表示</span>
-    </div>
-    <canvas id="rank-chart"></canvas>
-    <div id="chart-legend" class="chart-legend"></div>
-  </div>
-
   <div id="lvchart-link-wrap" class="lvchart-link-wrap" style="display:none;">
     <a id="lvchart-link" class="lvchart-link" href="#" target="_blank" rel="noopener">▶ 未OUT曲の順位は<span class="lvchart-here">こちら</span></a>
   </div>
 
-  <main id="ranking-list" aria-label="ランキング一覧" aria-live="polite"></main>
+  <!-- コンテンツエリア（ランキング＋サイドチャート） -->
+  <div class="content-grid">
+    <main id="ranking-list" aria-label="ランキング一覧" aria-live="polite"></main>
+
+    <!-- ★ 順位推移チャート（右側sticky） -->
+    <div id="chart-wrap" style="display:none;">
+      <div class="chart-header">
+        <span class="chart-title">順位推移チャート</span>
+        <button id="btn-chart-close" class="btn-chart-close" aria-label="チャートを閉じる">✕</button>
+      </div>
+      <span class="chart-hint">曲をクリック → 拡大表示</span>
+      <canvas id="rank-chart"></canvas>
+      <div id="chart-legend" class="chart-legend"></div>
+    </div>
+  </div>
 
   <footer>
     <p>この統計は、有志によるlocalvoid氏の統計のサブ統計です。</p>
-    <p style="margin-top:0.5rem"><a href="https://github.com/" target="_blank" rel="noopener">GitHub Pages</a> でホスティング</p>
   </footer>
 
 </div>
