@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ボカロ（OUT曲）週間ランキング</title>
-  <meta name="description" content="OUT曲の週間再生数統計データです。" />
+  <title>ボカロ週間ランキング</title>
+  <meta name="description" content="ボカロ曲の週間再生数ランキング。年・月・週で絞り込み、順位推移チャートも表示。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="//accaii.com/botty/script.js" async></script>
+  <noscript><img src="//accaii.com/botty/script?guid=on"></noscript>
 </head>
 <body>
 <div class="wrapper">
 
   <header>
     <div class="site-title">
-      <h1>ボカロ曲週間ランキング</h1>
+      <h1>ボカロ週間ランキング</h1>
       <p>Vocaloid Weekly Chart</p>
     </div>
   </header>
@@ -57,10 +59,14 @@
     <div id="chart-legend" class="chart-legend"></div>
   </div>
 
+  <div id="lvchart-link-wrap" class="lvchart-link-wrap" style="display:none;">
+    <a id="lvchart-link" class="lvchart-link" href="#" target="_blank" rel="noopener">▶ 未OUT曲の順位は<span class="lvchart-here">こちら</span></a>
+  </div>
+
   <main id="ranking-list" aria-label="ランキング一覧" aria-live="polite"></main>
 
   <footer>
-    <p>「君と僕もさ、また明日へ向かっていこう。」</p>
+    <p>データは Google スプレッドシートで管理。順位・前週比・初登場判定は自動計算。</p>
     <p style="margin-top:0.5rem"><a href="https://github.com/" target="_blank" rel="noopener">GitHub Pages</a> でホスティング</p>
   </footer>
 
