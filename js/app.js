@@ -3,7 +3,7 @@
  *
  * ■ スプレッドシートに入力する列（rankingシート）
  *   year, month, week, title, artist, videoId, views, viewsIncrease
- *   ※ rank / previousRank / isNew はすべてここで自動計算します
+ *   ※ rank / previousRank / isNew は全てここで計算
  */
 
 const CONFIG = {
@@ -35,6 +35,7 @@ const State = {
   week:  null,
   showTotalViews:  false,
   showDetailViews: false,
+  showMobileViews: false,
   chartVisible:    false,
   chartSongFilter: null,
 
@@ -230,6 +231,7 @@ async function init() {
   buildSelectors();
   render();
   bindEvents();
+  initJumpNav();
 }
 
 // ===== セレクタ =====
@@ -266,6 +268,11 @@ function bindEvents(){
   document.getElementById('sel-week').addEventListener('change',e=>{State.week=e.target.value;render();});
   document.getElementById('btn-prev').addEventListener('click',()=>navigate(-1));
   document.getElementById('btn-next').addEventListener('click',()=>navigate(+1));
+  document.getElementById('btn-mobile-views').addEventListener('click',()=>{
+    State.showMobileViews=!State.showMobileViews;
+    document.getElementById('btn-mobile-views').classList.toggle('active',State.showMobileViews);
+    document.body.classList.toggle('mobile-views-on',State.showMobileViews);
+  });
   document.getElementById('btn-toggle-views').addEventListener('click',()=>{
     State.showTotalViews=!State.showTotalViews;
     document.getElementById('btn-toggle-views').classList.toggle('active',State.showTotalViews);
@@ -390,12 +397,16 @@ function render(){
       renderChart();
     });
   });
+
+  // ジャンプナビの表示制御（存在するセクションのボタンだけ有効化）
+  updateJumpNav({million:million.length>0, half:half.length>0, third:showThird, requests:requests.length>0});
+
   renderChart();
 }
 
 function sectionHeader(type,label,sub){
   const icons={untracked:'◈',million:'▶▶▶',half:'▶▶',third:'▶',requests:'✉',rest:'♪'};
-  return `<div class="section-header section-${type}">
+  return `<div class="section-header section-${type}" id="sec-${type}">
     <span class="section-icon">${icons[type]}</span>
     <span class="section-label">${esc(label)}</span>
     ${sub?`<span class="section-sub">${esc(sub)}</span>`:''}
@@ -539,6 +550,36 @@ function renderChart(){
       <span class="legend-dot"></span>${esc(s.label.length>18?s.label.slice(0,17)+'…':s.label)}
     </span>`
   ).join('');
+}
+
+// ===== ジャンプナビ =====
+function updateJumpNav(sections){
+  const nav = document.getElementById('jump-nav');
+  if(!nav) return;
+  // 1つでもセクションがあれば表示
+  const anyVisible = Object.values(sections).some(Boolean);
+  nav.style.display = anyVisible ? 'flex' : 'none';
+  // 各ボタンの有効/無効を切り替え
+  nav.querySelectorAll('.jump-btn').forEach(btn => {
+    const target = btn.dataset.target;
+    const key = target.replace('sec-','');
+    const visible = sections[key] ?? false;
+    btn.disabled = !visible;
+    btn.classList.toggle('jump-btn--disabled', !visible);
+  });
+}
+
+function initJumpNav(){
+  document.querySelectorAll('.jump-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id = btn.dataset.target;
+      const el = document.getElementById(id);
+      if(!el) return;
+      const offset = 16; // 少し余白を持たせて止まる位置
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({top, behavior:'smooth'});
+    });
+  });
 }
 
 // ===== ローディング・エラー =====
