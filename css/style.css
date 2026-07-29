@@ -210,6 +210,20 @@ footer a{color:var(--accent-purple);text-decoration:none}
   margin-right: -220px;
 }
 
+/* ★ここから追記（HTML構造がそのままでもPCで正しく配置するためのCSS）★ */
+@media (min-width: 861px) {
+  .content-grid.chart-open #jump-nav,
+  .content-grid.chart-open #ranking-list {
+    grid-column: 1; 
+  }
+  
+  .content-grid.chart-open #chart-wrap {
+    grid-column: 2;
+    grid-row: 1 / span 2; 
+  }
+}
+/* ★ここまで追記★ */
+
 /* ===== CHART SIDE PANEL ===== */
 #chart-wrap {
   position: sticky;
