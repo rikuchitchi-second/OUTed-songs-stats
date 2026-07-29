@@ -206,6 +206,8 @@ footer a{color:var(--accent-purple);text-decoration:none}
 }
 .content-grid.chart-open {
   grid-template-columns: 1fr 340px;
+  /* wrapperのpadding分だけ右にはみ出せるよう右マージンを調整 */
+  margin-right: -220px;
 }
 
 /* ===== CHART SIDE PANEL ===== */
@@ -216,11 +218,9 @@ footer a{color:var(--accent-purple);text-decoration:none}
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: 1rem 1.1rem 1rem;
-  animation: fadeUp 0.25s ease both;
   max-height: calc(100vh - 3rem);
   overflow-y: auto;
-  margin-right: -220px;
-  width: calc(100% + 220px);
+  width: 560px;
 }
 .chart-header {
   display: flex;
@@ -297,6 +297,7 @@ footer a{color:var(--accent-purple);text-decoration:none}
 @media(max-width:860px){
   .content-grid.chart-open {
     grid-template-columns: 1fr;
+    margin-right: 0;
   }
   #chart-wrap {
     position: sticky;
