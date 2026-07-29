@@ -216,8 +216,11 @@ footer a{color:var(--accent-purple);text-decoration:none}
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: 1rem 1.1rem 1rem;
+  animation: fadeUp 0.25s ease both;
   max-height: calc(100vh - 3rem);
   overflow-y: auto;
+  margin-right: -220px;
+  width: calc(100% + 220px);
 }
 .chart-header {
   display: flex;
@@ -294,6 +297,7 @@ footer a{color:var(--accent-purple);text-decoration:none}
 @media(max-width:860px){
   .content-grid.chart-open {
     grid-template-columns: 1fr;
+    margin-right: 0;
   }
   #chart-wrap {
     position: sticky;
@@ -302,6 +306,8 @@ footer a{color:var(--accent-purple);text-decoration:none}
     max-height: none;
     order: -1;
     border-radius: 0 0 var(--r-lg) var(--r-lg);
+    margin-right: 0;
+    width: 100%;
   }
   #rank-chart { height: 220px; }
 }
