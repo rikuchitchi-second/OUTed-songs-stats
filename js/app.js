@@ -375,7 +375,7 @@ function render(){
     html+=sectionHeader('requests','依頼枠','');
     html+=requests.map(e=>buildEntryHTML(e,idx++,true)).join('');
     html+=`<div class="request-contact">
-      統計依頼は<a href="https://x.com/botty_KF" target="_blank" rel="noopener">X(旧Twitter)</a>DM又は<br>
+      統計依頼やバグ報告等は<a href="https://x.com/botty_KF" target="_blank" rel="noopener">X(旧Twitter)</a>DM又は<br>
       <a href="https://www.youtube.com/c/Localvoid4" target="_blank" rel="noopener">Youtube</a>コメントへの返信でお願いします。
     </div>`;
   }
