@@ -13,12 +13,31 @@
   <noscript><img src="//accaii.com/botty/script?guid=on"></noscript>
 </head>
 <body>
+
+<!-- ★ サイドメニュー（左からスライド） -->
+<div id="drawer-overlay" class="drawer-overlay"></div>
+<aside id="side-drawer" class="side-drawer" aria-hidden="true" aria-label="サイトメニュー">
+  <div class="drawer-header">
+    <span class="drawer-title">メニュー</span>
+    <button id="btn-drawer-close" class="btn-drawer-close" aria-label="メニューを閉じる">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="index.html" class="drawer-link active" aria-current="page">週間再生数ランキング</a>
+    <a href="main/main.html" class="drawer-link">総合ランキング</a>
+  </nav>
+</aside>
+
 <div class="wrapper">
 
   <header>
-    <div class="site-title">
-      <h1>ボカロ週間ランキング</h1>
-      <p>Vocaloid Weekly Chart</p>
+    <div class="header-inner">
+      <button id="btn-menu" class="btn-menu" aria-label="メニューを開く" aria-expanded="false" aria-controls="side-drawer">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-title">
+        <h1>ボカロ週間ランキング</h1>
+        <p>Vocaloid Weekly Chart</p>
+      </div>
     </div>
   </header>
 
@@ -82,6 +101,7 @@
   </footer>
 
 </div>
+<script src="js/menu.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
