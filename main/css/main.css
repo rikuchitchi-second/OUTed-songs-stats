@@ -1,0 +1,72 @@
+/* ===== 総合ランキング用の追加スタイル =====
+ * ../css/style.css の後に読み込み、差分だけを上書きする
+ */
+
+/* ===== 再生数表示 =====
+ * 総再生数がメイン（常に表示）、増加回数はボタンで表示切替 */
+.views-total {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.views-increase {
+  display: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+body.show-increase .views-increase {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .views-total { font-size: 1rem; }
+  .views-increase { font-size: 0.75rem; }
+}
+
+/* ===== ページ切り替え ===== */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+.pagination:empty {
+  display: none;
+}
+.page-btn {
+  min-width: 2.3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: var(--font-num);
+  padding: 0.32rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.page-btn:hover:not(:disabled):not(.active) {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  background: rgba(157,126,232,0.1);
+}
+.page-btn.active {
+  border-color: var(--accent-purple);
+  color: #d4c6ff;
+  background: rgba(157,126,232,0.22);
+  cursor: default;
+}
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.page-btn:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .page-btn { min-width: 2.1rem; padding: 0.3rem 0.55rem; }
+}
