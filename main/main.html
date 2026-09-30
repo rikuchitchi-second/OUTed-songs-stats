@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ボカロ総合ランキング</title>
+  <meta name="description" content="OUT済ボカロ曲の総再生数ランキングです。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- 共通スタイル（週間ランキングと同じ）＋ 総合ランキング用の追加スタイル -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="//accaii.com/botty/script.js" async></script>
+  <noscript><img src="//accaii.com/botty/script?guid=on"></noscript>
+</head>
+<body>
+
+<!-- サイドメニュー（左からスライド） -->
+<div id="drawer-overlay" class="drawer-overlay"></div>
+<aside id="side-drawer" class="side-drawer" aria-hidden="true" aria-label="サイトメニュー">
+  <div class="drawer-header">
+    <span class="drawer-title">メニュー</span>
+    <button id="btn-drawer-close" class="btn-drawer-close" aria-label="メニューを閉じる">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="../index.html" class="drawer-link">週間再生数ランキング</a>
+    <a href="main.html" class="drawer-link active" aria-current="page">総合ランキング</a>
+  </nav>
+</aside>
+
+<div class="wrapper">
+
+  <header>
+    <div class="header-inner">
+      <button id="btn-menu" class="btn-menu" aria-label="メニューを開く" aria-expanded="false" aria-controls="side-drawer">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-title">
+        <h1>ボカロ総合ランキング</h1>
+        <p>Vocaloid Total Chart</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls" role="group" aria-label="期間選択">
+    <button id="btn-prev" class="btn-nav" aria-label="前の週">◀ 前週</button>
+
+    <div class="control-group">
+      <label for="sel-year">年</label>
+      <select id="sel-year"></select>
+    </div>
+    <div class="control-group">
+      <label for="sel-month">月</label>
+      <select id="sel-month"></select>
+    </div>
+    <div class="control-group">
+      <label for="sel-week">週</label>
+      <select id="sel-week"></select>
+    </div>
+
+    <button id="btn-next" class="btn-nav" aria-label="次の週">次週 ▶</button>
+
+    <div class="controls-right">
+      <button id="btn-toggle-increase" class="btn-toggle">増加回数</button>
+      <button id="btn-toggle-detail" class="btn-toggle">詳細回数</button>
+    </div>
+  </div>
+
+  <p class="period-label" id="period-label">読み込み中...</p>
+
+  <!-- ページ切り替え（上） -->
+  <nav id="pagination-top" class="pagination" aria-label="ページ切り替え"></nav>
+
+  <main id="ranking-list" aria-label="総合ランキング一覧" aria-live="polite"></main>
+
+  <!-- ページ切り替え（下） -->
+  <nav id="pagination-bottom" class="pagination" aria-label="ページ切り替え"></nav>
+
+  <footer>
+    <p>この統計は、有志によるlocalvoid氏の統計のサブ統計です。</p>
+  </footer>
+
+</div>
+<script src="../js/menu.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
