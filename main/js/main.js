@@ -12,7 +12,7 @@
  */
 
 const CONFIG = {
-  SHEET_ID: 'ここにIDを追加する', // ★ 総合ランキング用スプレッドシートのIDに置き換える
+  SHEET_ID: '1pVrvQz4zaktp5PANILwiTBLfeyNDmBq7rnutJJ4CuFU', // ★ 総合ランキング用スプレッドシートのIDに置き換える
   GID:      '0',                         // ★ 使うシートのgid
   PAGE_SIZE: 50,                         // 1ページあたりの最大曲数
   MAX_PAGES: 10,                         // ページボタンの最大数（= 最大 500 曲まで表示）
